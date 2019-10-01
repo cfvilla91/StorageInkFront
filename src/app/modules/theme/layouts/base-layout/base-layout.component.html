@@ -1,0 +1,42 @@
+<mat-sidenav-container class="sidenav-container" [@fadeAnimation]="'in'">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="'navigation'" [mode]="'push'">
+
+    <ng-content select="[sidenav-content]"></ng-content>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <img src="assets/img/storage-ink-blanco.png" style="height: 48px;">
+      <span style="flex: 1 1 auto;"></span>
+
+      <mat-nav-list fxLayout="row">
+        <mat-list-item>
+          <div class="avatar-usermenu" [matMenuTriggerFor]="menu">
+          </div>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>person</mat-icon>
+              <span>Perfil</span>
+            </button>
+            <button mat-menu-item disabled>
+              <mat-icon>contact_support</mat-icon>
+              <span>Soporte</span>
+            </button>
+            <button mat-menu-item (click)="click_logout()">
+              <mat-icon>exit_to_app</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-toolbar>
+    <div class="dynamic-content-wrapper" style="background: burlywood">
+      <ng-content select="router-outlet"></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <app-loader></app-loader> -->

@@ -1,0 +1,17 @@
+mat-toolbar {
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.component-content {
+  overflow-y: scroll;
+  flex: 1;
+  padding: 10px 15px;
+}
+
+.component-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}

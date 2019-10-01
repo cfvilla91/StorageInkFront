@@ -1,0 +1,21 @@
+<mat-card class="login-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Storage Ink</mat-card-title>
+    <mat-card-subtitle>Inicie Sesión</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput placeholder="Usuario" type="text" [(ngModel)]='txtUser'>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Contraseña" [type]="hide ? 'text' : 'password'" [(ngModel)]='txtPassword'>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="login()" style="width: 100%;">Login</button><br><br>
+    <mat-progress-bar mode="indeterminate" *ngIf="logeando"></mat-progress-bar>
+  </mat-card-actions>
+</mat-card>

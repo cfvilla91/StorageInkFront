@@ -1,0 +1,34 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar...">
+</mat-form-field>
+
+<mat-table matSort [dataSource]="tableDataSource" class="mat-elevation-z8">
+
+  <ng-container *ngFor="let column of tableColumnDefinitions">
+
+    <ng-container [matColumnDef]="column.columnDefinition">
+
+      <mat-header-cell mat-sort-header *matHeaderCellDef> {{ column.columnName }} </mat-header-cell>
+
+      <ng-container *ngIf="column.buttons; else cellTemplate;">
+        <ng-container *ngFor="let button of column.buttons">
+          <mat-cell *matCellDef="let row">
+            <button mat-raised-button (click)="button.action(row)">{{ button.label }}</button>
+          </mat-cell>
+        </ng-container>
+      </ng-container>
+
+      <ng-template #cellTemplate>
+        <mat-cell *matCellDef="let row"> {{ column.cell(row) }} </mat-cell>
+      </ng-template>
+
+    </ng-container>
+
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>

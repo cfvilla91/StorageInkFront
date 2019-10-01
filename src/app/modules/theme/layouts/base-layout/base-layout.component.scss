@@ -1,0 +1,50 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.mat-list-base {
+  padding-top: 0px;
+}
+
+.avatar-usermenu {
+  /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+  /* background-image: url('../../../assets/img/opeth.png'); */
+
+  /* make a square container */
+  width: 45px;
+  height: 45px;
+
+  /* fill the container, preserving aspect ratio, and cropping to fit */
+  background-size: cover;
+
+  /* center the image vertically and horizontally */
+  background-position: top center;
+
+  /* round the edges to a circle with border radius 1/2 container size */
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.dynamic-content-wrapper {
+  flex: 1;
+  min-height: 0px;
+}
+
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+}
