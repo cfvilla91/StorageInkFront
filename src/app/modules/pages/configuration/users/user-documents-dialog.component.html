@@ -1,0 +1,6 @@
+<h4 style="text-align: center;">Documentos Usuario {{ selectedUser.FirstName + ' ' + selectedUser.LastName }}</h4>
+<app-table [dataSource]="selectedUser.UserDocuments" [displayedColumns]="userDocumentsTableDisplayedColumns"
+  [tableColumnDefinitions]="userDocumentsTableColumnDefinitions" (rowClicked)="userDocumentsTableRowClicked($event)">
+</app-table>
+<button mat-raised-button color="primary" style="width: 100%;" (click)="addUserDocumentBtnClicked()">Agregar
+  Documento</button>

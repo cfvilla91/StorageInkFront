@@ -36,3 +36,17 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.single-column-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.single-column-form * {
+  width: 100%;
+}
+
+h4,
+h5 {
+  margin: 5px 0px;
+}

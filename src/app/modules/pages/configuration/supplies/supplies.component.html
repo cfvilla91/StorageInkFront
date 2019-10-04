@@ -1,0 +1,6 @@
+<app-base-component-layout [title]="'INSUMOS'" [icon]="'work'" (btnAddOnClick)="btnAddClicked()">
+  <app-card [cardTitle]="'Lista Insumos'">
+    <app-table [dataSource]="supplyList" [displayedColumns]="supplyTableDisplayedColumns"
+      [tableColumnDefinitions]="supplyTableColumnDefinitions" (rowClicked)="supplysTableRowClicked($event)"></app-table>
+  </app-card>
+</app-base-component-layout>

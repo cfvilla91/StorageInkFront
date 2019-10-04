@@ -1,0 +1,6 @@
+<app-base-component-layout [title]="'CLIENTES'" [icon]="'folder_shared'" (btnAddOnClick)="btnAddClicked()">
+  <app-card [cardTitle]="'Lista Clientes'">
+    <app-table [dataSource]="clientList" [displayedColumns]="clientTableDisplayedColumns"
+      [tableColumnDefinitions]="clientTableColumnDefinitions" (rowClicked)="clientsTableRowClicked($event)"></app-table>
+  </app-card>
+</app-base-component-layout>

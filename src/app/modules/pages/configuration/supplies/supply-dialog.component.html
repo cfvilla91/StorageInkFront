@@ -1,0 +1,28 @@
+<form #supplyForm="ngForm" [formGroup]="supplyFormGroup" (ngSubmit)="formSubmit()" class="single-column-form">
+  <mat-form-field>
+    <mat-label>Nombre insumo</mat-label>
+    <input matInput placeholder="Nombre insumo" formControlName="SupplyName">
+  </mat-form-field>
+
+  <div>
+    <button mat-raised-button mat-icon-button color="primary"
+      [disabled]="supplyForm.invalid || this.supplyForm.pristine">
+      <mat-icon aria-label="Save">save</mat-icon>
+    </button>
+
+    <button type='button' mat-raised-button mat-icon-button color="basic" (click)="restoreOnClick()"
+      [disabled]="this.selectedSupply == null">
+      <mat-icon aria-label="Save">restore</mat-icon>
+    </button>
+
+    <button type='button' mat-raised-button mat-icon-button color="basic" (click)="clearOnClick()"
+      [disabled]="this.selectedSupply == null   && this.supplyForm.pristine">
+      <mat-icon aria-label="Save">clear</mat-icon>
+    </button>
+
+    <button type='button' mat-raised-button mat-icon-button color="warn" (click)="deleteOnClick()"
+      [disabled]="this.selectedSupply == null">
+      <mat-icon aria-label="Save">delete</mat-icon>
+    </button>
+  </div>
+</form>

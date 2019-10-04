@@ -1,0 +1,6 @@
+<app-base-component-layout [title]="'TINTAS'" [icon]="'opacity'" (btnAddOnClick)="btnAddClicked()">
+  <app-card [cardTitle]="'Lista Tintas'">
+    <app-table [dataSource]="inkList" [displayedColumns]="inkTableDisplayedColumns"
+      [tableColumnDefinitions]="inkTableColumnDefinitions" (rowClicked)="inksTableRowClicked($event)"></app-table>
+  </app-card>
+</app-base-component-layout>

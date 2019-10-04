@@ -7,19 +7,19 @@ export const APP_ITEMS = [
     },
     {
         label: 'Clientes',
+        link: '/pages/clients',
+        icon: 'folder_shared',
+    },
+    {
+        label: 'Tatuajes',
+        link: '/pages/tattoos',
+        icon: 'invert_colors',
+    },
+    {
+        label: 'Clientes',
         icon: 'person',
         accessLevel: 2,
         items: [
-            {
-                label: 'Clientes',
-                link: '/pages/clients/clients',
-                icon: 'folder_shared',
-            },
-            {
-                label: 'Tatuajes',
-                link: '/pages/clients/tattoos',
-                icon: 'storage',
-            },
         ]
     },
     {
@@ -34,12 +34,12 @@ export const APP_ITEMS = [
             },
             {
                 label: 'Tintas',
-                link: '/pages/configuration/ink',
+                link: '/pages/configuration/inks',
                 icon: 'opacity',
             },
             {
                 label: 'Insumos',
-                link: '/pages/configuration/supply',
+                link: '/pages/configuration/supplies',
                 icon: 'work',
             },
         ]

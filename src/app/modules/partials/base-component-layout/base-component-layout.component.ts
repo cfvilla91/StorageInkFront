@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-base-component-layout',
@@ -7,11 +7,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BaseComponentLayoutComponent implements OnInit {
 
+  @Output() btnAddOnClick: EventEmitter<any> = new EventEmitter();
   @Input() title = '';
+  @Input() icon = '';
+
+  showBtnAdd = false;
 
   constructor() { }
 
   ngOnInit() {
+    this.showBtnAdd = this.btnAddOnClick.observers.length > 0;
+  }
+
+  btnAddClicked() {
+    this.btnAddOnClick.emit();
   }
 
 }

@@ -1,0 +1,6 @@
+<app-base-component-layout [title]="'TATUAJES'" [icon]="'invert_colors'" (btnAddOnClick)="btnAddClicked()">
+  <app-card [cardTitle]="'Lista Tatuajes'">
+    <app-table [dataSource]="tattooList" [displayedColumns]="tattooTableDisplayedColumns"
+      [tableColumnDefinitions]="tattooTableColumnDefinitions" (rowClicked)="tattoosTableRowClicked($event)"></app-table>
+  </app-card>
+</app-base-component-layout>

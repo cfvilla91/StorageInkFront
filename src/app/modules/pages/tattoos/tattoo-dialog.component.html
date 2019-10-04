@@ -1,0 +1,37 @@
+<form #tattooForm="ngForm" [formGroup]="tattooFormGroup" (ngSubmit)="formSubmit()" class="single-column-form">
+
+  <mat-form-field>
+    <mat-label>Título tatuaje</mat-label>
+    <input matInput placeholder="Título tatuaje" formControlName="TattooTitle">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Estilo tatuaje</mat-label>
+    <input matInput placeholder="Estilo tatuaje" formControlName="TattooStyle">
+  </mat-form-field>
+
+  <mat-checkbox formControlName="CoverUp">Cover up</mat-checkbox>
+
+  <mat-form-field>
+    <input type="text" placeholder="Cliente" matInput formControlName="Client" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)">
+      <mat-option *ngFor="let client of filteredOptions$ | async" [value]="client">
+        {{client.FirstName + ' ' + client.LastName + ' ' + client.Email + ' ' + client.Uid}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+
+  <div>
+    <button mat-raised-button mat-icon-button color="primary"
+      [disabled]="tattooForm.invalid || this.tattooForm.pristine">
+      <mat-icon aria-label="Save">save</mat-icon>
+    </button>
+
+    <button type='button' mat-raised-button mat-icon-button color="basic" (click)="clearOnClick()"
+      [disabled]="this.selectedTattoo == null   && this.tattooForm.pristine">
+      <mat-icon aria-label="Save">clear</mat-icon>
+    </button>
+
+  </div>
+</form>

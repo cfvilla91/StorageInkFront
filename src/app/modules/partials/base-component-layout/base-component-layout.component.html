@@ -1,10 +1,13 @@
 <div class="component-wrapper">
   <mat-toolbar>
-    <div>
-      <h3>{{ title }}</h3>
+    <div style="display: flex; align-items: center;">
+      <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+      <span>{{ title }}</span>
     </div>
     <div>
-      <h3>botones</h3>
+      <button mat-icon-button color="primary" (click)="btnAddClicked()" *ngIf="showBtnAdd">
+        <mat-icon>add</mat-icon>
+      </button>
     </div>
   </mat-toolbar>
   <div class="component-content">

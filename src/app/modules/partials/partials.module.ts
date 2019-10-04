@@ -4,11 +4,15 @@ import { BaseComponentLayoutComponent } from './base-component-layout/base-compo
 import { TableComponent } from './table/table.component';
 import { ThemeModule } from '../theme/theme.module';
 import { CardComponent } from './card/card.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { LoaderComponent } from './loader/loader.component';
 
 const MODULE_COMPONENTS = [
   BaseComponentLayoutComponent,
   TableComponent,
-  CardComponent
+  CardComponent,
+  ConfirmationDialogComponent,
+  LoaderComponent
 ];
 
 @NgModule({
@@ -17,6 +21,7 @@ const MODULE_COMPONENTS = [
     CommonModule,
     ThemeModule
   ],
-  exports: [...MODULE_COMPONENTS]
+  exports: [...MODULE_COMPONENTS],
+  entryComponents: [ConfirmationDialogComponent]
 })
 export class PartialsModule { }

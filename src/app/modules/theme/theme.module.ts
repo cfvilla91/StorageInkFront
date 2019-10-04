@@ -25,9 +25,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatRippleModule } from '@angular/material/core';
-// import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 
@@ -39,16 +40,11 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
 
-/** Ng Flex Layout */
-// import { FlexLayoutModule } from '@angular/flex-layout';
-// import { AppLayoutBaseComponent } from './layouts/app-layout-base/app-layout-base.component';
-// import { LoaderComponent } from './loader/loader.component';
 // import { CalendarComponent } from './components/calendar/calendar.component';
 // import { CalendarDaySchedulerComponent } from './components/calendar-day-scheduler/calendar-day-scheduler.component';
 
 const THEME_MODULES = [
   FormsModule,
-  // FlexLayoutModule,
   ReactiveFormsModule,
   MatButtonModule,
   MatCheckboxModule,
@@ -75,9 +71,10 @@ const THEME_MODULES = [
   MatPaginatorModule,
   MatSortModule,
   MatRippleModule,
-  // MaterialFileInputModule,
+  MaterialFileInputModule,
   MatExpansionModule,
   MatButtonToggleModule,
+  MatAutocompleteModule,
   // CalendarModule
 ];
 

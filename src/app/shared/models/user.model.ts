@@ -8,5 +8,5 @@ export interface User {
     Email: string;
     Password: string;
     Profile: Profile;
-    UserDocuments: UserDocument;
+    UserDocuments: UserDocument[];
 }

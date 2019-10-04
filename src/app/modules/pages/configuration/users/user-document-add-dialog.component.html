@@ -1,0 +1,22 @@
+<form #docForm="ngForm" [formGroup]="userDocumentFormGroup" (ngSubmit)="formSubmit()" class="single-column-form">
+
+  <mat-form-field>
+    <ngx-mat-file-input #removableInput placeholder="Cargar Documento" (change)="inputFileChanged($event)">
+    </ngx-mat-file-input>
+    <button mat-icon-button matPreffix *ngIf="!removableInput.empty" (click)="removableInput.clear($event)">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Descripción</mat-label>
+    <input matInput placeholder="Descripción" formControlName="Description">
+  </mat-form-field>
+
+  <div>
+    <button mat-raised-button mat-icon-button color="primary"
+      [disabled]="!this.selectedUser || docForm.invalid || !this.imgString">
+      <mat-icon aria-label="Save">save</mat-icon>
+    </button>
+  </div>
+</form>

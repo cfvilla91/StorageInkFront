@@ -12,8 +12,8 @@
 
       <ng-container *ngIf="column.buttons; else cellTemplate;">
         <ng-container *ngFor="let button of column.buttons">
-          <mat-cell *matCellDef="let row">
-            <button mat-raised-button (click)="button.action(row)">{{ button.label }}</button>
+          <mat-cell *matCellDef="let row" (click)="$event.stopPropagation();">
+            <button mat-raised-button (click)="button.action(row)" [color]="button.color">{{ button.label }}</button>
           </mat-cell>
         </ng-container>
       </ng-container>
@@ -27,7 +27,7 @@
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)" matRipple></mat-row>
 
 </mat-table>
 

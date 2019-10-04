@@ -1,0 +1,6 @@
+<app-base-component-layout [title]="'USUARIOS'" [icon]="'account_circle'" (btnAddOnClick)="btnAddClicked()">
+  <app-card [cardTitle]="'Lista Usuarios'">
+    <app-table [dataSource]="userList" [displayedColumns]="userTableDisplayedColumns"
+      [tableColumnDefinitions]="userTableColumnDefinitions" (rowClicked)="usersTableRowClicked($event)"></app-table>
+  </app-card>
+</app-base-component-layout>

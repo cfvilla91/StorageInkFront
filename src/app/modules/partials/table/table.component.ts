@@ -1,10 +1,12 @@
-import { Component, OnInit, Input, OnChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ViewChild, EventEmitter, Output } from '@angular/core';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { isNullOrUndefined } from 'util';
 
 // Interface para definir botones en una columna de la tabla
 export interface ColumnButtonDefinition {
   label: string;
   action: (row: any) => any;
+  color?: 'primary' | 'warn' | 'accent';
 }
 
 // Interface para definir las columnas de la tabla
@@ -26,6 +28,8 @@ export class TableComponent implements OnInit, OnChanges {
   @Input() tableColumnDefinitions: TableColumnDefinition[]; // Array de definiciones de columnas
   @Input() dataSource = []; // Input de datos Raw
 
+  @Output() rowClicked: EventEmitter<any> = new EventEmitter();
+
   @ViewChild(MatSort) sort: MatSort; // Componente sort de tablas de material
   @ViewChild(MatPaginator) paginator: MatPaginator; // Componente paginador de tablas de material
 
@@ -37,6 +41,9 @@ export class TableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    if (isNullOrUndefined(this.dataSource)) {
+      return;
+    }
     // Cada vez que se altera el datasource se genera un nuevo MatTableDataSource
     this.tableDataSource = new MatTableDataSource(this.dataSource);
 
@@ -81,6 +88,10 @@ export class TableComponent implements OnInit, OnChanges {
   // Aplica el filtro sobre los datos de la tabla
   applyFilter(filterValue: string) {
     this.tableDataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  onRowClick(row) {
+    this.rowClicked.emit(row);
   }
 
 }

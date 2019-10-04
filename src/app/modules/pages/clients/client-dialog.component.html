@@ -1,0 +1,43 @@
+<form #clientForm="ngForm" [formGroup]="clientFormGroup" (ngSubmit)="formSubmit()" class="single-column-form">
+  <mat-form-field>
+    <mat-label>Nombres</mat-label>
+    <input matInput placeholder="Nombres" formControlName="FirstName">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Apellidos</mat-label>
+    <input matInput placeholder="Apellidos" formControlName="LastName">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Correo</mat-label>
+    <input matInput placeholder="Correo" formControlName="Email">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>RUT</mat-label>
+    <input matInput placeholder="RUT" formControlName="Uid">
+  </mat-form-field>
+
+  <div>
+    <button mat-raised-button mat-icon-button color="primary"
+      [disabled]="clientForm.invalid || this.clientForm.pristine">
+      <mat-icon aria-label="Save">save</mat-icon>
+    </button>
+
+    <button type='button' mat-raised-button mat-icon-button color="basic" (click)="restoreOnClick()"
+      [disabled]="this.selectedClient == null">
+      <mat-icon aria-label="Save">restore</mat-icon>
+    </button>
+
+    <button type='button' mat-raised-button mat-icon-button color="basic" (click)="clearOnClick()"
+      [disabled]="this.selectedClient == null && this.clientForm.pristine">
+      <mat-icon aria-label="Save">clear</mat-icon>
+    </button>
+
+    <button type='button' mat-raised-button mat-icon-button color="warn" (click)="deleteOnClick()"
+      [disabled]="this.selectedClient == null">
+      <mat-icon aria-label="Save">delete</mat-icon>
+    </button>
+  </div>
+</form>

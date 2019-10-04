@@ -1,0 +1,43 @@
+<form #inkForm="ngForm" [formGroup]="inkFormGroup" (ngSubmit)="formSubmit()" class="single-column-form">
+
+  <mat-form-field>
+    <mat-label>Nombre tinta</mat-label>
+    <input matInput placeholder="Nombre tinta" formControlName="InkName">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Código tinta</mat-label>
+    <input matInput placeholder="Código tinta" formControlName="InkCode">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Fabricante</mat-label>
+    <mat-select formControlName="InkProvider">
+      <mat-option *ngFor="let inkProvider of inkProviderList" [value]="inkProvider">
+        {{ inkProvider.ProviderName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div>
+    <button mat-raised-button mat-icon-button color="primary" [disabled]="inkForm.invalid || this.inkForm.pristine">
+      <mat-icon aria-label="Save">save</mat-icon>
+    </button>
+
+    <button type='button' mat-raised-button mat-icon-button color="basic" (click)="restoreOnClick()"
+      [disabled]="this.selectedInk == null">
+      <mat-icon aria-label="Save">restore</mat-icon>
+    </button>
+
+    <button type='button' mat-raised-button mat-icon-button color="basic" (click)="clearOnClick()"
+      [disabled]="this.selectedInk == null   && this.inkForm.pristine">
+      <mat-icon aria-label="Save">clear</mat-icon>
+    </button>
+
+    <button type='button' mat-raised-button mat-icon-button color="warn" (click)="deleteOnClick()"
+      [disabled]="this.selectedInk == null">
+      <mat-icon aria-label="Save">delete</mat-icon>
+    </button>
+  </div>
+
+</form>

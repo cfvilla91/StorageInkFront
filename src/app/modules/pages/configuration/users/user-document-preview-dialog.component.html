@@ -1,0 +1,19 @@
+<div style="display: flex; flex-direction: column; align-items: center;">
+
+  <h4 style="text-align: center;">Documento {{ selectedUserDocument.Description }}</h4>
+  <h5 style="text-align: center;">
+    Usuario {{ selectedUserDocument.User.FirstName + ' ' + selectedUserDocument.User.LastName }}
+  </h5>
+
+  <ng-container *ngIf="supportedFormat(selectedUserDocument.Extension); else notSupported;">
+    <ng-container *ngIf="selectedUserDocument.Extension.match('image*');">
+      <img style=" max-width: 450px;"
+        [src]="'data:'+selectedUserDocument.Extension+';base64,' + selectedUserDocument.FileData">
+    </ng-container>
+  </ng-container>
+
+  <ng-template #notSupported>
+    <span>VISTA PREVIA NO DISPONIBLE</span>
+  </ng-template>
+
+</div>

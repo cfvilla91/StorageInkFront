@@ -1,0 +1,7 @@
+<h4 style="text-align: center;">Documentos Cliente {{ selectedClient.FirstName + ' ' + selectedClient.LastName }}</h4>
+<app-table [dataSource]="selectedClient.ClientDocuments" [displayedColumns]="clientDocumentsTableDisplayedColumns"
+  [tableColumnDefinitions]="clientDocumentsTableColumnDefinitions"
+  (rowClicked)="clientDocumentsTableRowClicked($event)">
+</app-table>
+<button mat-raised-button color="primary" style="width: 100%;" (click)="addClientDocumentBtnClicked()">Agregar
+  Documento</button>
