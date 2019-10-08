@@ -61,7 +61,7 @@ export class UserDocumentsDialogComponent implements OnInit {
     const dialogRef = this.dialog.open(
       UserDocumentAddDialogComponent,
       {
-        width: '600px',
+        width: '800px',
         data: { user: this.selectedUser }
       }
     );
@@ -83,7 +83,7 @@ export class UserDocumentsDialogComponent implements OnInit {
     this.dialog.open(
       UserDocumentPreviewDialogComponent,
       {
-        width: '600px',
+        width: '800px',
         data: { userDocument }
       }
     );

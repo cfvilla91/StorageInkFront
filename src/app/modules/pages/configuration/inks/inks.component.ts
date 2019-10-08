@@ -42,7 +42,7 @@ export class InksComponent implements OnInit {
     const dialogRef = this.dialog.open(
       InkDialogComponent,
       {
-        width: '600px',
+        width: '800px',
         data: {}
       }
     );
@@ -64,7 +64,7 @@ export class InksComponent implements OnInit {
     const dialogRef = this.dialog.open(
       InkDialogComponent,
       {
-        width: '600px',
+        width: '800px',
         data: { ink: row }
       }
     );

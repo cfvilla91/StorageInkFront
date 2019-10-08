@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-/* Material para Angular */
+/* Angular Material Modules */
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -31,8 +31,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
-
-
+import { Ng2Rut } from 'ng2-rut';
 // import { CalendarModule } from 'angular-calendar';
 
 
@@ -75,6 +74,7 @@ const THEME_MODULES = [
   MatExpansionModule,
   MatButtonToggleModule,
   MatAutocompleteModule,
+  Ng2Rut,
   // CalendarModule
 ];
 

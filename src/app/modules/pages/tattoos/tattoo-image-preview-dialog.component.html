@@ -1,0 +1,17 @@
+<div style="display: flex; flex-direction: column; align-items: center;">
+
+  <h4 style="text-align: center;">
+    Tatuaje {{ selectedTattooImage.Tattoo.TattooTitle }}
+  </h4>
+  <h5 style="text-align: center;">
+    Cliente {{ selectedTattooImage.Tattoo.Client.FirstName + ' ' + selectedTattooImage.Tattoo.Client.LastName }}
+  </h5>
+  <h5 style="text-align: center;">
+    Imagen {{ selectedTattooImage.Description }}
+  </h5>
+
+  <ng-container>
+    <img style="max-width: 600px;"
+      [src]="'data:' + selectedTattooImage.Extension + ';base64,' + selectedTattooImage.FileData">
+  </ng-container>
+</div>

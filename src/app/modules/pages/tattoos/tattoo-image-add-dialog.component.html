@@ -1,0 +1,36 @@
+<div style="display: flex;">
+  <div style="flex: 1;">
+    <form #tattooImageForm="ngForm" [formGroup]="tattooImageFormGroup" (ngSubmit)="formSubmit()"
+      class="single-column-form">
+
+      <mat-form-field>
+        <ngx-mat-file-input #removableInput placeholder="Cargar Documento" (change)="inputFileChanged($event)">
+        </ngx-mat-file-input>
+        <button mat-icon-button matPreffix *ngIf="!removableInput.empty" (click)="removableInput.clear($event)">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Descripción</mat-label>
+        <input matInput placeholder="Descripción" formControlName="Description">
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button mat-icon-button color="primary"
+          [disabled]="!this.selectedTattoo || tattooImageForm.invalid || !this.previewImgString">
+          <mat-icon aria-label="Save">save</mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+    <h4 style="text-align: center;">Previsualización</h4>
+    <img style="max-width: 250px;" [src]="'data:' + previewExtension + ';base64,' + previewImgString"
+      *ngIf="previewExtension && previewImgString">
+  </div>
+</div>
+<br>
+<button mat-raised-button color="primary" (click)="photoButtonClicked()" style="width: 100%;">
+  Fotografía
+</button>

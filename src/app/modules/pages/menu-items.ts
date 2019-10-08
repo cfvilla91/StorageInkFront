@@ -16,13 +16,6 @@ export const APP_ITEMS = [
         icon: 'invert_colors',
     },
     {
-        label: 'Clientes',
-        icon: 'person',
-        accessLevel: 2,
-        items: [
-        ]
-    },
-    {
         label: 'Configuración',
         icon: 'build',
         accessLevel: 1,

@@ -6,22 +6,26 @@ import { ThemeModule } from '../theme/theme.module';
 import { CardComponent } from './card/card.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { LoaderComponent } from './loader/loader.component';
+import { CameraComponent } from './camera/camera.component';
+import { WebcamModule } from 'ngx-webcam';
 
 const MODULE_COMPONENTS = [
   BaseComponentLayoutComponent,
   TableComponent,
   CardComponent,
   ConfirmationDialogComponent,
-  LoaderComponent
+  LoaderComponent,
+  CameraComponent
 ];
 
 @NgModule({
   declarations: [...MODULE_COMPONENTS],
   imports: [
     CommonModule,
-    ThemeModule
+    ThemeModule,
+    WebcamModule
   ],
   exports: [...MODULE_COMPONENTS],
-  entryComponents: [ConfirmationDialogComponent]
+  entryComponents: [ConfirmationDialogComponent, CameraComponent]
 })
 export class PartialsModule { }

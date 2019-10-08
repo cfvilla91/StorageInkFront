@@ -1,0 +1,4 @@
+<webcam [width]="752" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" [imageQuality]="1"
+  (initError)="handleInitError($event)"></webcam>
+
+<button mat-raised-button color="primary" (click)="triggerSnapshot();" style="width: 100%;">Fotografiar</button>

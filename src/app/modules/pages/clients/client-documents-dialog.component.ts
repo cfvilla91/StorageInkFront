@@ -61,7 +61,7 @@ export class ClientDocumentsDialogComponent implements OnInit {
     const dialogRef = this.dialog.open(
       ClientDocumentAddDialogComponent,
       {
-        width: '600px',
+        width: '800px',
         data: { client: this.selectedClient }
       }
     );
@@ -83,7 +83,7 @@ export class ClientDocumentsDialogComponent implements OnInit {
     this.dialog.open(
       ClientDocumentPreviewDialogComponent,
       {
-        width: '600px',
+        width: '800px',
         data: { clientDocument }
       }
     );

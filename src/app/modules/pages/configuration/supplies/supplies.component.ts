@@ -37,7 +37,7 @@ export class SuppliesComponent implements OnInit {
     const dialogRef = this.dialog.open(
       SupplyDialogComponent,
       {
-        width: '600px',
+        width: '800px',
         data: {}
       }
     );
@@ -59,7 +59,7 @@ export class SuppliesComponent implements OnInit {
     const dialogRef = this.dialog.open(
       SupplyDialogComponent,
       {
-        width: '600px',
+        width: '800px',
         data: { supply: row }
       }
     );

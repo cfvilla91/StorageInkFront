@@ -1,0 +1,8 @@
+<h4 style="text-align: center;">Imágenes tatuaje {{ selectedTattoo.TattooTitle }}</h4>
+<h5 style="text-align: center;">Cliente {{ selectedTattoo.Client.FirstName + ' ' + selectedTattoo.Client.LastName }}
+</h5>
+<app-table [dataSource]="selectedTattoo.TattooImages" [displayedColumns]="tattooImagesTableDisplayedColumns"
+  [tableColumnDefinitions]="tattooImagesTableColumnDefinitions" (rowClicked)="tattooImagesTableRowClicked($event)">
+</app-table>
+<button mat-raised-button color="primary" style="width: 100%;" (click)="addTattooImageBtnClicked()">Agregar
+  Imagen</button>

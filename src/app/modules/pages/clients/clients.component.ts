@@ -69,7 +69,7 @@ export class ClientsComponent implements OnInit {
     this.dialog.open(
       ClientDocumentsDialogComponent,
       {
-        width: '600px',
+        width: '800px',
         data: { client }
       }
     );
@@ -79,7 +79,7 @@ export class ClientsComponent implements OnInit {
     const dialogRef = this.dialog.open(
       ClientDialogComponent,
       {
-        width: '600px',
+        width: '800px',
         data: {}
       }
     );
@@ -101,7 +101,7 @@ export class ClientsComponent implements OnInit {
     const dialogRef = this.dialog.open(
       ClientDialogComponent,
       {
-        width: '600px',
+        width: '800px',
         data: { client: row }
       }
     );

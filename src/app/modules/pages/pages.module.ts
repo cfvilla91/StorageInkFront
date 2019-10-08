@@ -22,6 +22,9 @@ import { ClientDocumentAddDialogComponent } from './clients/client-document-add-
 import { ClientDocumentPreviewDialogComponent } from './clients/client-document-preview-dialog.component';
 import { TattoosComponent } from './tattoos/tattoos.component';
 import { TattooDialogComponent } from './tattoos/tattoo-dialog.component';
+import { TattooImagesDialogComponent } from './tattoos/tattoo-images-dialog.component';
+import { TattooImageAddDialogComponent } from './tattoos/tattoo-image-add-dialog.component';
+import { TattooImagePreviewDialogComponent } from './tattoos/tattoo-image-preview-dialog.component';
 
 const DIALOG_COMPONENTS = [
   UserDialogComponent,
@@ -35,6 +38,9 @@ const DIALOG_COMPONENTS = [
   ClientDocumentAddDialogComponent,
   ClientDocumentPreviewDialogComponent,
   TattooDialogComponent,
+  TattooImageAddDialogComponent,
+  TattooImagesDialogComponent,
+  TattooImagePreviewDialogComponent,
 ];
 
 @NgModule({

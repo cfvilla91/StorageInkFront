@@ -1,4 +1,6 @@
 import { Client } from './client.model';
+import { TattooSession } from './tattoo-session.model';
+import { TattooImage } from './tattoo-image.model';
 
 export interface Tattoo {
     Id: number;
@@ -7,5 +9,6 @@ export interface Tattoo {
     CoverUp: boolean;
     Client: Client;
     TattooStatus: string;
-    TattooSessions: string;
+    TattooSessions: TattooSession[];
+    TattooImages: TattooImage[];
 }

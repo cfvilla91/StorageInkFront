@@ -5,6 +5,7 @@ import { ClientsService } from '../../../shared/services/clients.service';
 import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { isNullOrUndefined, isNull } from 'util';
 import { ConfirmationDialogComponent } from '../../partials/confirmation-dialog/confirmation-dialog.component';
+import { RutValidator } from 'ng2-rut';
 
 @Component({
   selector: 'app-client-dialog',
@@ -21,8 +22,10 @@ export class ClientDialogComponent implements OnInit {
     private clientsService: ClientsService,
     public dialogRef: MatDialogRef<ClientDialogComponent>,
     public dialog: MatDialog,
+    public rutValidator: RutValidator,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.clientFormGroup = new FormGroup(
@@ -30,7 +33,7 @@ export class ClientDialogComponent implements OnInit {
         Id: new FormControl(),
         FirstName: new FormControl('', Validators.required),
         LastName: new FormControl('', Validators.required),
-        Uid: new FormControl('', Validators.required),
+        Uid: new FormControl('', [Validators.required]),
         Email: new FormControl('', Validators.required),
       }
     );
