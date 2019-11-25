@@ -4,8 +4,10 @@ import { isNullOrUndefined } from 'util';
 
 // Interface para definir botones en una columna de la tabla
 export interface ColumnButtonDefinition {
-  label: string;
+  label?: string;
+  icon?: string;
   action: (row: any) => any;
+  show?: (row: any) => any;
   color?: 'primary' | 'warn' | 'accent';
 }
 

@@ -1,0 +1,31 @@
+<form #tattooSessionForm="ngForm" [formGroup]="tattooSessionFormGroup" (ngSubmit)="formSubmit()"
+  class="single-column-form">
+  <!-- 
+  <mat-form-field>
+    <mat-label>Título tatuaje</mat-label>
+    <input matInput placeholder="Título tatuaje" formControlName="TattooTitle">
+  </mat-form-field>
+   -->
+  <mat-form-field>
+    <input type="text" placeholder="Encargado" matInput formControlName="User" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)">
+      <mat-option *ngFor="let user of filteredOptions$ | async" [value]="user">
+        {{user.FirstName + ' ' + user.LastName + ' ' + user.Email}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+
+  <div>
+    <button mat-raised-button mat-icon-button color="primary"
+      [disabled]="tattooSessionForm.invalid || this.tattooSessionForm.pristine">
+      <mat-icon aria-label="Save">save</mat-icon>
+    </button>
+
+    <button type='button' mat-raised-button mat-icon-button color="basic" (click)="clearOnClick()"
+      [disabled]="this.selectedTattoo == null   && this.tattooSessionForm.pristine">
+      <mat-icon aria-label="Save">clear</mat-icon>
+    </button>
+
+  </div>
+</form>

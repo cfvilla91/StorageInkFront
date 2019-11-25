@@ -1,0 +1,9 @@
+<app-base-component-layout
+  [title]="'SESIONES TATUAJE ' + (selectedTatto ? selectedTatto.TattooTitle + ' - Cliente ' + selectedTatto.Client.FirstName + ' ' + selectedTatto.Client.LastName : '')"
+  [icon]="'invert_colors'" (btnAddOnClick)="btnAddClicked()">
+  <app-card [cardTitle]="'Lista Sesiones Tatuaje'">
+    <app-table [dataSource]="tattooSessionList" [displayedColumns]="tattooSessionTableDisplayedColumns"
+      [tableColumnDefinitions]="tattooSessionTableColumnDefinitions"
+      (rowClicked)="tattooSessionsTableRowClicked($event)"></app-table>
+  </app-card>
+</app-base-component-layout>

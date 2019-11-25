@@ -10,6 +10,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material';
 import { LoaderInterceptor } from '../partials/loader/loader.interceptor';
 import { localStorageSync } from 'ngrx-store-localstorage';
+import { DebounceClickDirective } from './directives/debounce-click.directive';
 
 export function jwtTokenGetter() {
   return localStorage.getItem('token');
@@ -21,7 +22,9 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
 const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    // DebounceClickDirective
+  ],
   imports: [
     CommonModule,
     HttpClientModule,

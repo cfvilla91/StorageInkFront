@@ -20,7 +20,8 @@
   </mat-form-field>
 
   <div>
-    <button mat-raised-button mat-icon-button color="primary" [disabled]="inkForm.invalid || this.inkForm.pristine">
+    <button mat-raised-button mat-icon-button appDebounceClick (debounceClick)="formSubmit()" color="primary"
+      [disabled]="inkForm.invalid || this.inkForm.pristine">
       <mat-icon aria-label="Save">save</mat-icon>
     </button>
 

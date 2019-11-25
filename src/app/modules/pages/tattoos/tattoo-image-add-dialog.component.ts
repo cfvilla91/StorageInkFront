@@ -37,7 +37,7 @@ export class TattooImageAddDialogComponent implements OnInit {
       {
         Id: new FormControl(),
         Tattoo: new FormControl(this.selectedTattoo, Validators.required),
-        FileData: new FormControl(''),
+        ImageData: new FormControl(''),
         Extension: new FormControl(''),
         Description: new FormControl('', Validators.required),
       }
@@ -46,7 +46,7 @@ export class TattooImageAddDialogComponent implements OnInit {
 
   formSubmit() {
     this.tattooImageFormGroup.controls.Extension.setValue(this.previewExtension);
-    this.tattooImageFormGroup.controls.FileData.setValue(this.previewImgString);
+    this.tattooImageFormGroup.controls.ImageData.setValue(this.previewImgString);
     this.tattooImagesService
       .addTattooImage(this.tattooImageFormGroup.value)
       .subscribe(newTattooImage => this.dialogRef.close(newTattooImage));

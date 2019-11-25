@@ -7,6 +7,7 @@ import { SuppliesComponent } from './configuration/supplies/supplies.component';
 import { InksComponent } from './configuration/inks/inks.component';
 import { ClientsComponent } from './clients/clients.component';
 import { TattoosComponent } from './tattoos/tattoos.component';
+import { TattooSessionsComponent } from './tattoos/tattoo-sessions/tattoo-sessions.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'tattoos',
         component: TattoosComponent
+      },
+      {
+        path: 'tattooSessions/:id',
+        component: TattooSessionsComponent
       },
       {
         path: 'configuration',

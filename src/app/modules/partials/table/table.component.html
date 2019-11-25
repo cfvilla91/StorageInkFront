@@ -11,11 +11,47 @@
       <mat-header-cell mat-sort-header *matHeaderCellDef> {{ column.columnName }} </mat-header-cell>
 
       <ng-container *ngIf="column.buttons; else cellTemplate;">
-        <ng-container *ngFor="let button of column.buttons">
-          <mat-cell *matCellDef="let row" (click)="$event.stopPropagation();">
-            <button mat-raised-button (click)="button.action(row)" [color]="button.color">{{ button.label }}</button>
-          </mat-cell>
-        </ng-container>
+        <mat-cell *matCellDef="let row" (click)="$event.stopPropagation();">
+
+          <ng-container *ngFor="let button of column.buttons">
+            <ng-container *ngIf="!button.show">
+              <ng-container *ngIf="!button.icon; else iconButton;">
+                <button mat-raised-button (click)="button.action(row)" [color]="button.color"
+                  style="margin-right: 5px;">{{ button.label }}</button>
+              </ng-container>
+              <ng-template #iconButton>
+                <button mat-mini-fab (click)="button.action(row)" [color]="button.color" style="margin-right: 5px;">
+                  <mat-icon>{{ button.icon }}</mat-icon>
+                </button>
+              </ng-template>
+
+            </ng-container>
+            <ng-container *ngIf="button.show">
+
+              <ng-container *ngIf="!button.icon; else iconButton;">
+                <ng-container *ngIf="button.show(row)">
+                  <button mat-raised-button (click)="button.action(row)" [color]="button.color"
+                    style="margin-right: 5px;">{{ button.label }}</button>
+                </ng-container>
+              </ng-container>
+              <ng-template #iconButton>
+                <ng-container *ngIf="button.show(row)">
+                  <button mat-mini-fab (click)="button.action(row)" [color]="button.color" style="margin-right: 5px;">
+                    <mat-icon>{{ button.icon }}</mat-icon>
+                  </button>
+                </ng-container>
+              </ng-template>
+
+
+
+              <ng-container *ngIf="button.show(row)">
+                <button mat-raised-button (click)="button.action(row)" [color]="button.color"
+                  style="margin-right: 5px;">{{ button.label }}</button>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+
+        </mat-cell>
       </ng-container>
 
       <ng-template #cellTemplate>

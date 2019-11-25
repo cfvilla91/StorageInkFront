@@ -11,4 +11,5 @@ export interface Tattoo {
     TattooStatus: string;
     TattooSessions: TattooSession[];
     TattooImages: TattooImage[];
+    CreatedAt: Date;
 }

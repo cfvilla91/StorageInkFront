@@ -25,6 +25,9 @@ import { TattooDialogComponent } from './tattoos/tattoo-dialog.component';
 import { TattooImagesDialogComponent } from './tattoos/tattoo-images-dialog.component';
 import { TattooImageAddDialogComponent } from './tattoos/tattoo-image-add-dialog.component';
 import { TattooImagePreviewDialogComponent } from './tattoos/tattoo-image-preview-dialog.component';
+import { TattooSessionsComponent } from './tattoos/tattoo-sessions/tattoo-sessions.component';
+import { TattooSessionDialogComponent } from './tattoos/tattoo-sessions/tattoo-session-dialog.component';
+import { DebounceClickDirective } from '../core/directives/debounce-click.directive';
 
 const DIALOG_COMPONENTS = [
   UserDialogComponent,
@@ -41,6 +44,7 @@ const DIALOG_COMPONENTS = [
   TattooImageAddDialogComponent,
   TattooImagesDialogComponent,
   TattooImagePreviewDialogComponent,
+  TattooSessionDialogComponent,
 ];
 
 @NgModule({
@@ -53,6 +57,8 @@ const DIALOG_COMPONENTS = [
     ClientsComponent,
     TattoosComponent,
     ...DIALOG_COMPONENTS,
+    TattooSessionsComponent,
+    DebounceClickDirective
   ],
   imports: [
     CommonModule,
