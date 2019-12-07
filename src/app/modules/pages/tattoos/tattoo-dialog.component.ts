@@ -46,7 +46,7 @@ export class TattooDialogComponent implements OnInit {
         Id: new FormControl(),
         TattooTitle: new FormControl('', Validators.required),
         TattooStyle: new FormControl('', Validators.required),
-        CoverUp: new FormControl(false),
+        CoverUp: new FormControl(false, Validators.required),
         Client: new FormControl(null, Validators.required),
         TattooStatus: new FormControl(''),
       }

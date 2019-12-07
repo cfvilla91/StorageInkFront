@@ -28,6 +28,15 @@ import { TattooImagePreviewDialogComponent } from './tattoos/tattoo-image-previe
 import { TattooSessionsComponent } from './tattoos/tattoo-sessions/tattoo-sessions.component';
 import { TattooSessionDialogComponent } from './tattoos/tattoo-sessions/tattoo-session-dialog.component';
 import { DebounceClickDirective } from '../core/directives/debounce-click.directive';
+import { ScheduleSessionComponent } from './schedule/schedule-session/schedule-session.component';
+import { CalendarModule } from 'angular-calendar';
+import { ScheduleSessionDialogComponent } from './schedule/schedule-session/schedule-session-dialog.component';
+import { GeneralOverviewComponent } from './schedule/general-overview/general-overview.component';
+import { MyScheduleComponent } from './schedule/my-schedule/my-schedule.component';
+import { TattooSessionInksDialogComponent } from './tattoos/tattoo-sessions/tattoo-session-inks-dialog.component';
+import { TattooSessionsReportComponent } from './reports/tattoo-sessions-report/tattoo-sessions-report.component';
+import { TattooSessionInksReportDialogComponent } from './reports/tattoo-sessions-report/tattoo-session-inks-report-dialog.component';
+import { UsersTattooSessionsReportComponent } from './reports/users-tattoo-sessions-report/users-tattoo-sessions-report.component';
 
 const DIALOG_COMPONENTS = [
   UserDialogComponent,
@@ -45,6 +54,9 @@ const DIALOG_COMPONENTS = [
   TattooImagesDialogComponent,
   TattooImagePreviewDialogComponent,
   TattooSessionDialogComponent,
+  ScheduleSessionDialogComponent,
+  TattooSessionInksDialogComponent,
+  TattooSessionInksReportDialogComponent,
 ];
 
 @NgModule({
@@ -58,13 +70,19 @@ const DIALOG_COMPONENTS = [
     TattoosComponent,
     ...DIALOG_COMPONENTS,
     TattooSessionsComponent,
-    DebounceClickDirective
+    DebounceClickDirective,
+    ScheduleSessionComponent,
+    GeneralOverviewComponent,
+    MyScheduleComponent,
+    TattooSessionsReportComponent,
+    UsersTattooSessionsReportComponent,
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
     ThemeModule,
-    PartialsModule
+    PartialsModule,
+    CalendarModule
   ],
   entryComponents: [...DIALOG_COMPONENTS]
 })

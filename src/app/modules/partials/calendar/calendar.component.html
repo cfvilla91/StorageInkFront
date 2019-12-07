@@ -1,0 +1,41 @@
+<div fxLayout="row" fxLayoutAlign="space-between center">
+
+  <div>
+    <button mat-icon-button matPreffix mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+      (viewDateChange)="closeOpenMonthViewDay()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button mat-raised-button matPreffix mwlCalendarToday [(viewDate)]="viewDate">
+      Hoy
+    </button>
+    <button mat-icon-button matPreffix mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+      (viewDateChange)="closeOpenMonthViewDay()">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+
+  </div>
+
+  <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+
+  <mat-button-toggle-group>
+    <mat-button-toggle (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">Mes
+    </mat-button-toggle>
+    <mat-button-toggle (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">Semana
+    </mat-button-toggle>
+    <mat-button-toggle (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">Día
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<div [ngSwitch]="view">
+  <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
+    [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+    (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+  </mwl-calendar-month-view>
+  <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events" [refresh]="refresh"
+    (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+  </mwl-calendar-week-view>
+  <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events" [refresh]="refresh"
+    (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+  </mwl-calendar-day-view>
+</div>

@@ -1,0 +1,44 @@
+<form #scheduledSessionForm="ngForm" [formGroup]="scheduledSessionFormGroup" (ngSubmit)="formSubmit()"
+  class="single-column-form">
+
+  <mat-form-field>
+    <mat-label>Encargado</mat-label>
+    <mat-select formControlName="User">
+      <mat-option *ngFor="let user of userList" [value]="user">
+        {{ user.FirstName + ' ' + user.LastName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Cliente</mat-label>
+    <mat-select formControlName="Client">
+      <mat-option *ngFor="let client of clientList" [value]="client">
+        {{ client.FirstName + ' ' + client.LastName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Notas adicionales</mat-label>
+    <input matInput placeholder="Notas adicionales" formControlName="Notes">
+  </mat-form-field>
+
+  <div>
+    <button mat-raised-button mat-icon-button appDebounceClick (debounceClick)="formSubmit()" color="primary"
+      [disabled]="scheduledSessionForm.invalid || this.scheduledSessionForm.pristine">
+      <mat-icon aria-label="Save">save</mat-icon>
+    </button>
+
+    <!-- <button type='button' mat-raised-button mat-icon-button color="basic" (click)="clearOnClick()"
+      [disabled]="this.selectedInk == null   && this.scheduledSessionForm.pristine">
+      <mat-icon aria-label="Save">clear</mat-icon>
+    </button>
+
+    <button type='button' mat-raised-button mat-icon-button color="warn" (click)="deleteOnClick()"
+      [disabled]="this.selectedInk == null">
+      <mat-icon aria-label="Save">delete</mat-icon>
+    </button> -->
+  </div>
+
+</form>

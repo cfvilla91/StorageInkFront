@@ -1,0 +1,6 @@
+<app-base-component-layout [title]="'REPORTE SESIONES DE TATUAJE POR OPERARIO'" [icon]="'invert_colors'">
+  <app-card [cardTitle]="'Lista Operarios'">
+    <app-table [dataSource]="tattooSessionList" [displayedColumns]="tattooSessionTableDisplayedColumns"
+      [tableColumnDefinitions]="tattooSessionTableColumnDefinitions"></app-table>
+  </app-card>
+</app-base-component-layout>

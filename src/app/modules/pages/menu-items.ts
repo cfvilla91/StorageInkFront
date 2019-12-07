@@ -1,7 +1,7 @@
 export const APP_ITEMS = [
     {
         label: 'Mi Horario',
-        link: '/pages/mySchedule',
+        link: '/pages/schedule/mySchedule',
         icon: 'perm_contact_calendar',
         accessLevel: 3
     },
@@ -55,32 +55,19 @@ export const APP_ITEMS = [
         ]
     },
     {
-        label: 'Inventario',
-        link: '/pages/inventory',
-        accessLevel: 2,
-        icon: 'playlist_add_check',
-    },
-    {
         label: 'Reportes',
         icon: 'assignment',
         accessLevel: 1,
         items: [
             {
                 label: 'Sesiones',
-                link: '/pages/reports/sessionsReport',
+                link: '/pages/reports/tattooSessions',
                 icon: 'list_alt',
             },
-        ]
-    },
-    {
-        label: 'Administración',
-        icon: 'lock',
-        accessLevel: 0,
-        items: [
             {
-                label: 'Actividades Usuarios',
-                link: '/pages/administration/userActivity',
-                icon: 'account_circle',
+                label: 'Sesiones por Operario',
+                link: '/pages/reports/userTattooSessions',
+                icon: 'list_alt',
             },
         ]
     },

@@ -1,0 +1,7 @@
+<app-base-component-layout [title]="'REPORTE SESIONES DE TATUAJE'" [icon]="'invert_colors'">
+  <app-card [cardTitle]="'Lista Sesiones'">
+    <app-table [dataSource]="tattooSessionList" [displayedColumns]="tattooSessionTableDisplayedColumns"
+      [tableColumnDefinitions]="tattooSessionTableColumnDefinitions"
+      (rowClicked)="tattooSessionsTableRowClicked($event)"></app-table>
+  </app-card>
+</app-base-component-layout>

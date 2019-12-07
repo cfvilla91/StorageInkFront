@@ -27,6 +27,8 @@ $SInk-theme: mat-light-theme($SInk-primary, $SInk-accent, $SInk-warn);
 
 /* You can add global styles to this file, and also import other style files */
 
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
 html,
 body {
   height: 100%;
@@ -49,4 +51,16 @@ body {
 h4,
 h5 {
   margin: 5px 0px;
+}
+
+.hide {
+  display: none !important;
+}
+
+.home_backgorund {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

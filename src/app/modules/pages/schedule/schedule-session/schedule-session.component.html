@@ -1,0 +1,26 @@
+<app-base-component-layout [title]="'AGENDAR SESIONES'" [icon]="'invert_colors'" (btnSaveOnClick)="saveChanges()"
+  (btnAddOnClick)="addEvent()">
+  <app-card [cardTitle]="'Sesiones agendadas'">
+
+    <div>
+      <button mat-icon-button matPreffix mwlCalendarPreviousView [view]="'day'" [(viewDate)]="viewDate">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      <button mat-raised-button matPreffix mwlCalendarToday [(viewDate)]="viewDate">
+        Hoy
+      </button>
+      <button mat-icon-button matPreffix mwlCalendarNextView [view]="'day'" [(viewDate)]="viewDate">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+
+    </div>
+
+    <h3>{{ viewDate | date }}</h3>
+
+    <app-day-view-scheduler [viewDate]="viewDate" [events]="events" (eventTimesChanged)="eventTimesChanged($event)"
+      (userChanged)="userChanged($event)">
+    </app-day-view-scheduler>
+
+
+  </app-card>
+</app-base-component-layout>

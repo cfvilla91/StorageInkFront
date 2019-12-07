@@ -8,6 +8,11 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import { LoaderComponent } from './loader/loader.component';
 import { CameraComponent } from './camera/camera.component';
 import { WebcamModule } from 'ngx-webcam';
+import { DayViewSchedulerComponent } from './day-view-scheduler/day-view-scheduler.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarComponent } from './calendar/calendar.component';
+import { DatePipe } from '@angular/common';
 
 const MODULE_COMPONENTS = [
   BaseComponentLayoutComponent,
@@ -15,7 +20,9 @@ const MODULE_COMPONENTS = [
   CardComponent,
   ConfirmationDialogComponent,
   LoaderComponent,
-  CameraComponent
+  CameraComponent,
+  DayViewSchedulerComponent,
+  CalendarComponent
 ];
 
 @NgModule({
@@ -23,9 +30,14 @@ const MODULE_COMPONENTS = [
   imports: [
     CommonModule,
     ThemeModule,
-    WebcamModule
+    WebcamModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
   ],
   exports: [...MODULE_COMPONENTS],
-  entryComponents: [ConfirmationDialogComponent, CameraComponent]
+  entryComponents: [ConfirmationDialogComponent, CameraComponent],
+  providers: [DatePipe]
 })
 export class PartialsModule { }

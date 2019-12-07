@@ -8,6 +8,7 @@ import { TableColumnDefinition } from '../../../partials/table/table.component';
 import { MatDialog } from '@angular/material';
 import { TattooSessionDialogComponent } from './tattoo-session-dialog.component';
 import { formatDate } from '@angular/common';
+import { TattooSessionInksDialogComponent } from './tattoo-session-inks-dialog.component';
 
 @Component({
   selector: 'app-tattoo-sessions',
@@ -83,6 +84,7 @@ export class TattooSessionsComponent implements OnInit {
   startTattooSession(tattooSession: TattooSession) {
     this.tattooSessionsService.startTattooSession(tattooSession.Id).subscribe(
       startedTattooSession => {
+        console.log(startedTattooSession);
         const index = this.tattooSessionList.indexOf(this.tattooSessionList.find(x => x.Id === startedTattooSession.Id));
         this.tattooSessionList[index] = startedTattooSession;
         this.tattooSessionList = [...this.tattooSessionList];
@@ -115,6 +117,17 @@ export class TattooSessionsComponent implements OnInit {
           ...this.tattooSessionList,
           newTattooSession
         ];
+      }
+    );
+  }
+
+  tattooSessionsTableRowClicked(tattooSession) {
+    console.log(tattooSession);
+    this.dialog.open(
+      TattooSessionInksDialogComponent,
+      {
+        width: '800px',
+        data: { tattooSession }
       }
     );
   }

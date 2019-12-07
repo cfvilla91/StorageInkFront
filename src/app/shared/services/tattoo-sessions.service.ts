@@ -21,6 +21,11 @@ export class TattooSessionsService {
         return this.http.get<TattooSession[]>(this.endpoint);
     }
 
+    getTattooSessionsByUserReport(): Observable<any[]> {
+        const url = `${this.endpoint}/getTattooSessionsByUserReport/all`;
+        return this.http.get<any[]>(url);
+    }
+
     getTattooSessionById(id): Observable<TattooSession> {
         const url = `${this.endpoint}/${id}`;
         return this.http.get<TattooSession>(url);

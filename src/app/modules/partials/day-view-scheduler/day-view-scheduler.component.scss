@@ -1,0 +1,18 @@
+.day-view-column-headers {
+  display: flex;
+  margin-left: 70px;
+}
+
+.day-view-column-header {
+  width: 150px;
+  border: solid 1px black;
+  text-align: center;
+}
+
+.cal-time-events {
+  border-top: solid 1px #e1e1e1;
+}
+
+.cal-week-view {
+  border-top: 0;
+}
