@@ -5,7 +5,6 @@ const routes: Routes = [
   {
     path: 'pages',
     loadChildren: 'src/app/modules/pages/pages.module#PagesModule',
-    // canActivate: [AuthGuardService],
   },
   {
     path: 'auth',

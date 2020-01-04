@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -28,17 +26,5 @@ export class AuthService {
             }
         );
     }
-
-    // handleLogin(loginData) {
-    //     localStorage.setItem('token', loginData.access_token);
-    //     const decodedToken = this.jwtHelperService.decodeToken(loginData.access_token);
-    //     this.usersService.getUserById(decodedToken.sub)
-    //         .subscribe(
-    //             loggedUser => {
-    //                 localStorage.setItem('loggedUser', JSON.stringify(loggedUser));
-    //                 setTimeout(() => { this.router.navigate(['pages']); }, 500);
-    //             }
-    //         );
-    // }
 
 }

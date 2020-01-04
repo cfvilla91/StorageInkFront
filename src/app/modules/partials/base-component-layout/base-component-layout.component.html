@@ -5,11 +5,11 @@
       <span>{{ title }}</span>
     </div>
     <div>
-      <button mat-icon-button color="primary" (click)="btnAddClicked()" *ngIf="showBtnAdd">
-        <mat-icon>add</mat-icon>
+      <button mat-raised-button color="accent" (click)="btnAddClicked()" *ngIf="showBtnAdd">
+        Agregar
       </button>
-      <button mat-icon-button color="primary" (click)="btnSaveClicked()" *ngIf="showBtnSave">
-        <mat-icon>save</mat-icon>
+      <button mat-raised-button color="accent" (click)="btnSaveClicked()" *ngIf="showBtnSave">
+        Grabar
       </button>
     </div>
   </mat-toolbar>

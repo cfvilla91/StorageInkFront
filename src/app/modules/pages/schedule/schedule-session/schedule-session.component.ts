@@ -28,18 +28,6 @@ export const colors: any = {
   }
 };
 
-const users = [
-  {
-    id: 0,
-    name: 'John smith',
-    color: colors.yellow
-  },
-  {
-    id: 1,
-    name: 'Jane Doe',
-    color: colors.blue
-  }
-];
 
 @Component({
   selector: 'app-schedule-session',
@@ -50,43 +38,7 @@ const users = [
 export class ScheduleSessionComponent implements OnInit {
   viewDate = new Date();
 
-  events: CalendarEvent[] = [
-    // {
-    //   title: 'An event',
-    //   start: addHours(startOfDay(new Date()), 0),
-    //   end: addHours(startOfDay(new Date()), 0),
-    //   meta: {
-    //     user: users[0]
-    //   },
-    //   cssClass: 'hide'
-    // },
-    // // {
-    // //   title: 'Another event',
-    // //   color: users[1].color,
-    // //   start: addHours(startOfDay(new Date()), 2),
-    // //   meta: {
-    // //     user: users[1]
-    // //   },
-    // //   resizable: {
-    // //     beforeStart: true,
-    // //     afterEnd: true
-    // //   },
-    // //   draggable: true
-    // // },
-    // // {
-    // //   title: 'An 3rd event',
-    // //   color: users[0].color,
-    // //   start: addHours(startOfDay(new Date()), 7),
-    // //   meta: {
-    // //     user: users[0]
-    // //   },
-    // //   resizable: {
-    // //     beforeStart: true,
-    // //     afterEnd: true
-    // //   },
-    // //   draggable: true
-    // // }
-  ];
+  events: CalendarEvent[] = [];
   userList: User[];
 
   constructor(
@@ -107,18 +59,7 @@ export class ScheduleSessionComponent implements OnInit {
               for (const u of users) {
                 u['color'] = colors[Math.floor(Math.random() * colors.length)];
                 this.userList.push(u);
-                // const aux = {
-                //   title: '',
-                //   color: colors[0],
-                //   start: startOfDay(new Date()),
-                //   meta: {
-                //     user: u,
-                //   },
-                //   cssClass: 'hide'
-                // };
-                // eventsAux.push(aux);
               }
-              console.log(this.userList);
 
               for (const s of scheduledSessions) {
                 console.log(s);
@@ -148,30 +89,6 @@ export class ScheduleSessionComponent implements OnInit {
           );
         }
       );
-    // this.usersService.getAll().subscribe(
-    //   users => {
-    //     users.forEach(
-    //       user => {
-    //         const ghostEvent: CalendarEvent = {
-    //           title: 'An event',
-    //           start: addHours(startOfDay(new Date()), 0),
-    //           meta: {
-    //             user
-    //           },
-    //           cssClass: 'hide'
-    //         };
-    //         this.events = [
-    //           ...this.events,
-    //           ghostEvent
-    //         ];
-    //       }
-    //     );
-    //   }
-    // );
-  }
-
-  test() {
-    console.log(this.events);
   }
 
   eventTimesChanged({
@@ -250,10 +167,6 @@ export class ScheduleSessionComponent implements OnInit {
             ...this.events,
             aux
           ];
-          // this.inkList = [
-          //   ...this.inkList,
-          //   newInk
-          // ];
         }
       }
     );

@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   logeando = false;
 
@@ -28,9 +28,6 @@ export class LoginComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router
   ) { }
-
-  ngOnInit() {
-  }
 
   login() {
     this.logeando = true;
@@ -55,3 +52,5 @@ export class LoginComponent implements OnInit {
   }
 
 }
+
+

@@ -8,7 +8,9 @@
 
     <ng-container [matColumnDef]="column.columnDefinition">
 
-      <mat-header-cell mat-sort-header *matHeaderCellDef> {{ column.columnName }} </mat-header-cell>
+      <mat-header-cell mat-sort-header *matHeaderCellDef style="font-weight: bold; font-size: 12pt;">
+        {{ column.columnName }}
+      </mat-header-cell>
 
       <ng-container *ngIf="column.buttons; else cellTemplate;">
         <mat-cell *matCellDef="let row" (click)="$event.stopPropagation();">
